@@ -2,10 +2,79 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
+    <loc>http://example.org/</loc>
+    <lastmod>2021-11-30T03:36:54+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/</loc>
+    <lastmod>2021-11-30T03:36:54+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/sprinkles-of-eloquent-listener/</loc>
+    <lastmod>2021-11-30T03:36:54+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/adding-telegram-instant-view-to-writemv/</loc>
+    <lastmod>2021-10-30T03:38:41+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/2020-recap/</loc>
+    <lastmod>2021-01-02T03:33:59+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/livewire-nice-select/</loc>
+    <lastmod>2020-12-30T03:30:44+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/sentiment-analysis-101/</loc>
+    <lastmod>2020-12-30T03:28:48+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/lets-make-weather-station/</loc>
+    <lastmod>2020-12-29T23:38:29+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/sentiment-analysis-implementation/</loc>
+    <lastmod>2020-12-08T03:31:36+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/making-a-bridge-between-cloudflare-and-nodemcu/</loc>
+    <lastmod>2020-12-01T03:00:59+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/aggregate-cheapest-products-from-online-shops-in-maldives/</loc>
+    <lastmod>2020-11-30T03:24:39+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/component-driven-development-with-livewire/</loc>
+    <lastmod>2020-11-30T03:23:17+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/building-a-chainable-collection/</loc>
+    <lastmod>2020-11-30T03:17:24+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/how-to-make-a-static-site-generator/</loc>
+    <lastmod>2020-11-30T03:15:28+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/visualize-covid19-cases/</loc>
+    <lastmod>2020-11-30T03:12:03+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/nasa-image-search-with-vue/</loc>
+    <lastmod>2020-11-30T03:08:37+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/thaana-lorem-ipsum-generator/</loc>
+    <lastmod>2020-11-30T02:56:26+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/how-its-made-talking-cactus/</loc>
+    <lastmod>2020-02-08T23:30:24+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/writing-thaana-on-lcd-display/</loc>
+    <lastmod>2020-01-29T23:25:37+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/saturn-parser/</loc>
+    <lastmod>2020-01-20T23:28:09+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/how-to-setup-git-hooks-in-digital-ocean-droplet/</loc>
+    <lastmod>2019-12-05T23:15:55+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/how-to-make-console-app-with-symfony-console/</loc>
+    <lastmod>2019-11-30T23:04:58+05:00</lastmod>
+  </url><url>
+    <loc>http://example.org/posts/how-to-fix-nodemcu-flash-issue/</loc>
+    <lastmod>2019-11-29T11:37:12+05:00</lastmod>
+  </url><url>
     <loc>http://example.org/categories/</loc>
   </url><url>
-    <loc>http://example.org/</loc>
-  </url><url>
     <loc>http://example.org/tags/</loc>
+  </url><url>
+    <loc>http://example.org/posts/thoughts-of-the-day/</loc>
   </url>
 </urlset>

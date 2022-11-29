@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head>
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-brands-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-regular-400.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/font-awesome/webfonts/fa-solid-900.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <link rel="preload" href="/lib/JetBrainsMono/web/woff2/JetBrainsMono-Regular.woff2" as="font" type="font/woff2" crossorigin="anonymous">
+  <script type="text/javascript" src="https://latest.cactus.chat/cactus.js"></script>
+  <link rel="stylesheet" href="https://latest.cactus.chat/style.css" type="text/css">
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <title> How to Setup Git Hooks in Digital Ocean Droplet | Mohamed Jinas</title>
+  <link rel = 'canonical' href = 'http://example.org/posts/how-to-setup-git-hooks-in-digital-ocean-droplet/'>
+  <meta name="description" content="Full Stack Software Developer, Science Lover, Electronic Hobbyist. This is my personal website mainly to record my rants, studies, research, experiments, and other interesting things I come across. Just sharing my experiences.">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="all,follow">
+  <meta name="googlebot" content="index,follow,snippet,archive">
+  <meta property="og:title" content="How to Setup Git Hooks in Digital Ocean Droplet" />
+<meta property="og:description" content="Since the year is 2019 and not 2006 you really should be using git to deploy your application." />
+<meta property="og:type" content="article" />
+<meta property="og:url" content="http://example.org/posts/how-to-setup-git-hooks-in-digital-ocean-droplet/" /><meta property="article:section" content="posts" />
+<meta property="article:published_time" content="2019-12-05T23:15:55+05:00" />
+<meta property="article:modified_time" content="2019-12-05T23:15:55+05:00" />
+
+
+  <meta name="twitter:card" content="summary"/>
+<meta name="twitter:title" content="How to Setup Git Hooks in Digital Ocean Droplet"/>
+<meta name="twitter:description" content="Since the year is 2019 and not 2006 you really should be using git to deploy your application."/>
+
+  
+  
+    
+  
+  
+  <link rel="stylesheet" href="http://example.org/css/styles.c05d68261bf086a9d7713c4f8a6215a3601608e267a816a7ee58f139b3d1aae51222aae2081c8e0c6bd35e1334773b7a16283022f31f92afd93bb37e5e822e66.css" integrity="sha512-wF1oJhvwhqnXcTxPimIVo2AWCOJnqBan7ljxObPRquUSIqriCByODGvTXhM0dzt6FigwIvMfkq/ZO7N&#43;XoIuZg=="> 
+
+  
+  
+  
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+      <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+  
+<link rel="icon" type="image/png" href="http://example.org/images/favicon.ico" />
+
+  
+  
+  
+  
+</head>
+
+<body class="max-width mx-auto px3 ltr">
+  <div class="content index py4">
+
+  <div id="header-post">
+  <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+  <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;" aria-label="Top of Page"><i class="fas fa-chevron-up fa-lg"></i></a>
+  <span id="menu">
+    <span id="nav">
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+        
+        <li>
+          <a class="icon" href=" http://example.org/posts/how-to-make-console-app-with-symfony-console/" aria-label="Previous">
+            <i class="fas fa-chevron-left" aria-hidden="true" onmouseover="$('#i-prev').toggle();" onmouseout="$('#i-prev').toggle();"></i>
+          </a>
+        </li>
+        
+        
+        <li>
+          <a class="icon" href="http://example.org/posts/saturn-parser/" aria-label="Next">
+            <i class="fas fa-chevron-right" aria-hidden="true" onmouseover="$('#i-next').toggle();" onmouseout="$('#i-next').toggle();"></i>
+          </a>
+        </li>
+        
+        <li>
+          <a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+            <i class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();" onmouseout="$('#i-top').toggle();"></i>
+          </a>
+        </li>
+        <li>
+          <a class="icon" href="#" aria-label="Share">
+            <i class="fas fa-share-alt" aria-hidden="true" onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();" onclick="$('#share').toggle();return false;"></i>
+          </a>
+        </li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f" aria-label="Facebook">
+      <i class="fab fa-facebook " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&text=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Twitter">
+      <i class="fab fa-twitter " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&title=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Linkedin">
+      <i class="fab fa-linkedin " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&is_video=false&description=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Pinterest">
+      <i class="fab fa-pinterest " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet&body=Check out this article: http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f" aria-label="Email">
+      <i class="fas fa-envelope " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&title=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Pocket">
+      <i class="fab fa-get-pocket " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&title=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="reddit">
+      <i class="fab fa-reddit " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&name=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet&description=Since%20the%20year%20is%202019%20and%20not%202006%20you%20really%20should%20be%20using%20git%20to%20deploy%20your%20application." aria-label="Tumblr">
+      <i class="fab fa-tumblr " aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&t=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Hacker News">
+      <i class="fab fa-hacker-news " aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+    
+    <div id="toc">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+  </span>
+</div>
+
+
+  <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+      <h1 class="posttitle" itemprop="name headline">
+        How to Setup Git Hooks in Digital Ocean Droplet
+      </h1>
+      <div class="meta">
+        
+        <div class="postdate">
+          
+          <time datetime="2019-12-05 23:15:55 &#43;0500 &#43;05" itemprop="datePublished">2019-12-05</time>
+          
+        </div>
+        
+        
+        <div class="article-read-time">
+          <i class="far fa-clock"></i>
+          
+          7 minute read
+        </div>
+        
+        
+        
+      </div>
+    </header>
+
+  
+    
+    <div class="content" itemprop="articleBody">
+      <p>Since the year is 2019 and not 2006 you really should be using git to deploy your application. So you could always use SFTP to get your web app onto your server, but that is not only less secure, but it also WAY SLOWER. While it might work fine the first time, it becomes a pain in the ass for future updates. Using git, pushing to our server is effortless and has virtually no downtime.</p>
+<p>Step 1: Install Git</p>
+<p>We will install Git onto our server now in a folder called /var/repo/ which is near our Nginx folder of /var/www/site/ . Let’s make the folder now.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd;font-style:italic">cd</span> /var
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>mkdir repo <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">cd</span> repo
+</span></span></code></pre></div><p>This will move us into our /var/ directory and then make a new directory called repo/ and then move us into that folder. You should now be inside /var/repo/ when you execute the next commands.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>mkdir site.git <span style="color:#ff79c6">&amp;&amp;</span> <span style="color:#8be9fd;font-style:italic">cd</span> site.git
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>git init --bare
+</span></span></code></pre></div><p>The –bare flag might be a new one for you, and that is because it is generally only used on servers. A bare repo is a special kind of repo whose sole purpose is to receive pushes from developers. You can learn more about these types of repositories from the official git site.</p>
+<p>We now have a git repository in /var/repo/site.git congratulations!</p>
+<p>Step 2: Setting Up Git Hooks</p>
+<p>Git repositories have a cool feature called hooks that we are going to use to move our files after a git push. Think of git hooks like webhooks or maybe WordPress hooks. Basically, you can create scripts that execute when certain hooks are triggered. There are three hooks available through Git: pre-receive, post-receive, and update.</p>
+<p>We will focus on the post-receive hook which triggers after the repo has fully downloaded your files and completed receiving a push.</p>
+<p>To set up hooks we need to move into the hooks directory inside of our site.git folder. In /var/repo/site.git# we can type ls to see all the files and folders inside. You will see the hooks/ directory which we need to cd into.</p>
+<p>Once you are inside the hooks/ directory we are going to create the post-receive script. We will be using a new command called touch which makes an empty file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo nano post-receive
+</span></span></code></pre></div><p>Now you will open up a blank file in Nano (terminal text editor). Type the next two lines into the file and save and exit the file.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#ff79c6">#!/bin/sh
+</span></span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span><span style="color:#ff79c6"></span>git --work-tree<span style="color:#ff79c6">=</span>/var/www/site --git-dir<span style="color:#ff79c6">=</span>/var/repo/site.git checkout -f
+</span></span></code></pre></div><p>Now save and exit (the same way we keep doing it Ctrl + X then Y to confirm the save and enter to save it as /var/repo/site.git/hooks/post-receive. This file is where all of the magic happens.</p>
+<p>The –work-tree= tells git where to copy received files to after it has completed. We set it to point to the folder of the application. The –git-dir= tells git where the bare git directory is that has received the files. It is that simple. Make sure that the whole command is on one line (including the checkout -f).</p>
+<p>After you save the /var/repo/site.git/hooks/post-receive file, you need to make one last command before we leave this folder and push our files up. The post-receive file needs execution permissions in order to copy these files over. So we can do that really quick with one line of code. Make sure you are still in /var/repo/site.git/hooks/ folder when you type this command:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>sudo chmod +x post-receive
+</span></span></code></pre></div><p>That is it! Now when we push to this repository on our server, the files will be placed in our /var/www/site/ directory and Nginx can begin to serve them to our users.</p>
+<p>We are now done on our server, for now, we need to exit the ssh session to access our local machine for the next step. Type the following command to end your ssh session.</p>
+<pre tabindex="0"><code>exit
+</code></pre><p>Your command prompt should now change to the name of your computer instead of root@localhost#. This indicates you are no longer on your server and you are making changes now to your local computer.</p>
+<p>Step 3: Set up our Local Computer to Push to Production</p>
+<p>Now that our server is set up to receive the files, let’s set up our local computer so that it can push the files to our server. We will be using git, so make sure that your local computer’s Site directory is under git version control before you continue.</p>
+<p>Just like when we push our files up to GitHub, we set up a git remote called origin that represents GitHub. So when we want to push to GitHub we make a command like this git push origin branch-name. This tells git to push the branch (branch name in this example) to our origin remote.</p>
+<p>Now in the same fashion that we set up GitHub as a push location, we will also set up our new server as a push location. I like to call this remote by the name production which represents our live production website. The goal is that after we set it up, we can tell it to push to our server from our local computer by just typing the command git push production master and this will push the master branch to our production server. You can continue to push to GitHub using git push origin master but then when you are ready to make changes go live you will run the push to production.</p>
+<p>Note: You can create as many “remotes” as you want in git. It is common to have a secondary server called “staging” which is where push your project to for quality testing before pushing to a live site. The staging site is like a beta for you to test internally in a production-like environment before the whole world sees it in real production. In this case, you could create another server (just following the directions in this tutorial again) and create another “remote” called “staging”. Now you can use a command like a git push staging master to push to staging for testing. Then when you feel that the version is safe for the public, you can run git push production master to push it to the production server. You can also set up other remote servers for git backups (like gitlab) or testing servers, or alpha tests and stuff.</p>
+<p>To set up a new remote you use the git remote add command. Before you do this make sure you are in the correct location. First of all, you should no longer be on your server. If you still see root@localhost# in your prompt then you are on your server still. Type exit and click enter to leave the server. You should see the name of your computer in the command prompt now. Use cd commands to get into your site project folder that you want to push to the server. In my case, my project is under /Sites/myweb so I type this to get into my folder via the terminal:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd;font-style:italic">cd</span> Sites/blog
+</span></span></code></pre></div><p>Also, make sure you have git setup for this project. I am assuming you have already made at least one commit (but probably many) and you are currently on your master branch which contains your latest production-ready code.</p>
+<p>Make sure that you substitute the red text with your domain name or IP address that you use to ssh into your server.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>git remote add production ssh://root@example.com/var/repo/site.git
+</span></span></code></pre></div><p>Make sure to substitute the red text with your domain or IP address. The command should mimic the ssh command you use to log into your server. So if you type ssh <a href="mailto:root@100.100.100.1">root@100.100.100.1</a> to get into your server than 100.100.100.1 is what it should show on the command above.</p>
+<p>With this command, we now created a remote called production that sends our files to the new bare git repo we made on our server.</p>
+<p>Now once again, assuming your project code is production-ready and is on your master branch then you can type this command to push it up to your server:</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>git push production master
+</span></span></code></pre></div><p>The output will look just like when you push to GitHub, but this time you are pushing to your own server! Let’s log back into our server now to make sure it worked.</p>
+<p>Step 4: Verify our Git Hook Works</p>
+<p>Now let’s make sure our code is in the right place. It should be in our /var/www/site/ folder on our server. It is easy to check, just log back into your server and look at the directory.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span>ssh root@example.com
+</span></span></code></pre></div><p>Remember that example.com needs to be changed to your domain or IP address. Now cd into your Site folder.</p>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-bash" data-lang="bash"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">1</span><span><span style="color:#8be9fd;font-style:italic">cd</span> /var/www/site
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">2</span><span>ls
+</span></span></code></pre></div><p>You should now see your website pushed to this folder. You can poke around but it should mimic your files from your local computer. Honestly, anything in here is a good sign because it was empty the last time we logged off the server. If you have your Site in here then you have done everything right.</p>
+<p>Note: This was extracted from a tutorial I found online created by devmarketer to just specify things</p>
+<p>Original tutorial below:</p>
+<p><a href="https://devmarketer.io/learn/deploy-laravel-5-app-lemp-stack-ubuntu-nginx/">Tutorial</a></p>
+
+    </div>
+  </article>
+
+  
+  
+
+
+
+
+
+
+  <div id="footer-post-container">
+  <div id="footer-post">
+
+    <div id="nav-footer" style="display: none">
+      <ul>
+         
+          <li><a href="/">Home</a></li>
+         
+          <li><a href="/posts">Writings</a></li>
+         
+          <li><a href="/tags">Tags</a></li>
+         
+          <li><a href="/about">About</a></li>
+        
+      </ul>
+    </div>
+
+    
+    <div id="toc-footer" style="display: none">
+      <nav id="TableOfContents"></nav>
+    </div>
+    
+
+    <div id="share-footer" style="display: none">
+      
+      <ul>
+  
+  
+    
+  
+  
+  <li>
+    <a class="icon" href="http://www.facebook.com/sharer.php?u=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f" aria-label="Facebook">
+      <i class="fab fa-facebook fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://twitter.com/share?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&text=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Twitter">
+      <i class="fab fa-twitter fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.linkedin.com/shareArticle?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&title=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Linkedin">
+      <i class="fab fa-linkedin fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://pinterest.com/pin/create/bookmarklet/?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&is_video=false&description=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Pinterest">
+      <i class="fab fa-pinterest fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="mailto:?subject=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet&body=Check out this article: http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f" aria-label="Email">
+      <i class="fas fa-envelope fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://getpocket.com/save?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&title=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Pocket">
+      <i class="fab fa-get-pocket fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://reddit.com/submit?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&title=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="reddit">
+      <i class="fab fa-reddit fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="http://www.tumblr.com/share/link?url=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&name=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet&description=Since%20the%20year%20is%202019%20and%20not%202006%20you%20really%20should%20be%20using%20git%20to%20deploy%20your%20application." aria-label="Tumblr">
+      <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+  <li>
+    <a class="icon" href="https://news.ycombinator.com/submitlink?u=http%3a%2f%2fexample.org%2fposts%2fhow-to-setup-git-hooks-in-digital-ocean-droplet%2f&t=How%20to%20Setup%20Git%20Hooks%20in%20Digital%20Ocean%20Droplet" aria-label="Hacker News">
+      <i class="fab fa-hacker-news fa-lg" aria-hidden="true"></i>
+    </a>
+  </li>
+</ul>
+
+    </div>
+
+    <div id="actions-footer">
+      
+        <a id="menu-toggle" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;" aria-label="Menu">
+          <i class="fas fa-bars fa-lg" aria-hidden="true"></i> Menu</a>
+        
+        <a id="toc-toggle" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;" aria-label="TOC">
+          <i class="fas fa-list fa-lg" aria-hidden="true"></i> TOC</a>
+        
+        <a id="share-toggle" class="icon" href="#" onclick="$('#share-footer').toggle();return false;" aria-label="Share">
+          <i class="fas fa-share-alt fa-lg" aria-hidden="true"></i> share</a>
+        <a id="top" style="display:none" class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" aria-label="Top of Page">
+          <i class="fas fa-chevron-up fa-lg" aria-hidden="true"></i> Top</a>
+    </div>
+
+  </div>
+</div>
+
+
+  <footer id="footer">
+  <div class="footer-left">
+    Copyright  &copy; 2022  Jinas 
+  </div>
+  <div class="footer-right">
+    <nav>
+      <ul>
+         
+        <li><a href="/">Home</a></li>
+         
+        <li><a href="/posts">Writings</a></li>
+         
+        <li><a href="/tags">Tags</a></li>
+         
+        <li><a href="/about">About</a></li>
+        
+      </ul>
+    </nav>
+  </div>
+</footer>
+
+
+  </div>
+</body>
+
+<link rel="stylesheet" href=/lib/font-awesome/css/all.min.css>
+<script src=/lib/jquery/jquery.min.js></script>
+<script src=/js/main.js></script>
+
+<script src=/js/code-copy.js></script>
+
+
+
+
+</html>
