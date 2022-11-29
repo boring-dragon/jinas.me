@@ -1,7 +1,7 @@
 ---
 title: "Writing Thaana on Lcd Display"
 date: 2020-01-29T23:25:37+05:00
-draft: true
+draft: false
 ---
 
 So for the past few weeks, I have been doing bit of research and digging on how to write Dhivehi thaana to a 16*2 LCD. What I found out is that it’s not hard to do it. So the thing I had to do was to assign custom byte codes that match the letters in the Dhivehi thaana. So the easiest way to think about this was making a 5 * 8 squares like a table Shown below.

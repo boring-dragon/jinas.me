@@ -1,7 +1,7 @@
 ---
 title: "Visualize Covid19 Cases"
 date: 2020-11-30T03:12:03+05:00
-draft: true
+draft: false
 ---
 
 Its been a while since I wrote an article or posted any blog posts. Been carried away from things lately. Anyways I thought it might be interesting to do some visualizations. Let’s visualize some time-series!

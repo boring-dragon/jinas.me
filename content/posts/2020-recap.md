@@ -1,7 +1,7 @@
 ---
 title: "2020 Recap"
 date: 2021-01-02T03:33:59+05:00
-draft: true
+draft: false
 ---
 
 So 2020 is finally over and as I look back on some of the things that happened in my life last year. I would say that it was a really hard year for everyone. And also I can say that 2020 was the most noteworthy year for me. Despite that, a lot of hardship did come in 2020 but I manage to overcome those and there are a lot of things I am still grateful for.

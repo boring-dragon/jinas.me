@@ -1,7 +1,7 @@
 ---
 title: "How to Make a Static Site Generator"
 date: 2020-11-30T03:15:28+05:00
-draft: true
+draft: false
 ---
 
 Here is how I made a static site generator with PHP and [Laravel blade](https://github.com/PhiloNL/Laravel-Blade) templating engine. The library I used in this is called laravel-blade by Philo. You can also use Markdown as your content editing but in this one I am using JSON files because It's really easy to implement.

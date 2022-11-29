@@ -1,7 +1,7 @@
 ---
 title: "How to Setup Git Hooks in Digital Ocean Droplet"
 date: 2019-12-05T23:15:55+05:00
-draft: true
+draft: false
 ---
 
 Since the year is 2019 and not 2006 you really should be using git to deploy your application. So you could always use SFTP to get your web app onto your server, but that is not only less secure, but it also WAY SLOWER. While it might work fine the first time, it becomes a pain in the ass for future updates. Using git, pushing to our server is effortless and has virtually no downtime.

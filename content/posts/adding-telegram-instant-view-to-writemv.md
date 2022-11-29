@@ -1,7 +1,7 @@
 ---
 title: "Adding Telegram Instant View to Writemv"
 date: 2021-10-30T03:38:41+05:00
-draft: true
+draft: false
 ---
 
 What is Instant View?

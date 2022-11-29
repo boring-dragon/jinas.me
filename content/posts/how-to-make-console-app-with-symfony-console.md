@@ -1,7 +1,7 @@
 ---
 title: "How to Make Console App With Symfony Console"
 date: 2019-11-30T23:04:58+05:00
-draft: true
+draft: false
 ---
 ![image](https://boring-dragon.sgp1.digitaloceanspaces.com/images/2cCwy.png)
 

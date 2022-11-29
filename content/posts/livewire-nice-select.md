@@ -1,7 +1,7 @@
 ---
 title: "Livewire Nice Select"
 date: 2020-12-30T03:30:44+05:00
-draft: true
+draft: false
 ---
 
 Nice Select is a lightweight jQuery plugin that replaces native select elements with customizable dropdowns. I wanted to make a reactive dropdown with livewire and using the nice select plugin. But it wasn't working as expected. Livewire was not able to bind the `<select>` to a property.

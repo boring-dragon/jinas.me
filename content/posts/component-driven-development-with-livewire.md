@@ -1,7 +1,7 @@
 ---
 title: "Component Driven Development With Livewire"
 date: 2020-11-30T03:23:17+05:00
-draft: true
+draft: false
 ---
 
 For the past few days, I have been working with livewire for my projects and so far I enjoy how easy it is and it takes away the complexity of actually using Javascript to request for ajax and having to manually set up the tracking of states within the page. And all the action inside I handled with in the component. So there won't be any need for you to have a controller.

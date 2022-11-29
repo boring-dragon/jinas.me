@@ -1,7 +1,7 @@
 ---
 title: "Building a Chainable Collection"
 date: 2020-11-30T03:17:24+05:00
-draft: true
+draft: false
 ---
 
 Collections can be a really useful tool when you are doing any sort of calculations, sortings. I have been using Laravel Collection for a long time in my projects. So let's build a collection with a fluent chainable API to interact it with. This would just a chainable wrapper around PHP array functions. Let's start by building out the class structure.

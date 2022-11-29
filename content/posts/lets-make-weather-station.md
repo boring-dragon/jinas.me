@@ -1,7 +1,7 @@
 ---
 title: "Lets Make Weather Station"
 date: 2020-12-29T23:38:29+05:00
-draft: true
+draft: false
 ---
 
 This is sort of a tutorial that I put together to explain much as I can about the process of making a simple realtime weather station with Arduino and some web technologies. In this project, I will be attempting to get sensor data from a DHT11 temperature, Humidity sensor and displaying it in a nice web user interface.

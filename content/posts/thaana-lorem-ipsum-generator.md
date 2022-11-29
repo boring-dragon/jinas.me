@@ -1,7 +1,7 @@
 ---
 title: "Thaana Lorem Ipsum Generator"
 date: 2020-11-30T02:56:26+05:00
-draft: true
+draft: false
 ---
 
 I will push the demo application soon as I finish developing it.

@@ -1,7 +1,7 @@
 ---
 title: "Thoughts of the Day"
 date: 2021-02-30T03:35:27+05:00
-draft: true
+draft: false
 ---
 
 For the past few days, I haven't been really feeling like myself. I was doing less work and not doing any fun projects I always loved doing. I love what I do but sometimes I feel like I am overdoing things. Do you ever get the feeling that "if you don't work hard enough every day that you aren't gonna succeed?". Well, I always thought of it that way. But I know now that is not entirely true.

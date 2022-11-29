@@ -1,7 +1,7 @@
 ---
 title: "Sentiment Analysis Implementation"
 date: 2020-12-08T03:31:36+05:00
-draft: true
+draft: false
 ---
 
 A few months ago I started collecting some dhivehi data for trying out sentiment analysis and so far collected about 800 data points. Which is not much but it was enough to try it out. I was just curious how this is going to turn out. This is mainly done for experimental purposes and I am very new to machine learning.

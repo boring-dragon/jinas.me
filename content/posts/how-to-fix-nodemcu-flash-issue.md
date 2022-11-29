@@ -1,7 +1,7 @@
 ---
 title: "How to Fix Nodemcu Flash Issue"
 date: 2019-11-29T11:37:12+05:00
-draft: true
+draft: false
 ---
 
 ![image](https://boring-dragon.sgp1.digitaloceanspaces.com/images/617T2JKnxiL._SX522_.jpg)

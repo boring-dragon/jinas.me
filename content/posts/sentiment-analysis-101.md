@@ -1,7 +1,7 @@
 ---
 title: "Sentiment Analysis 101"
 date: 2020-12-30T03:28:48+05:00
-draft: true
+draft: false
 ---
 
 For the past few days, I have been trying to make a sentiment analysis tool for Dhivehi. So to do this I had to get a lot of Dhivehi text people have written. What I did was index the comments on a couple of different news site and as of now, the dataset includes more than 11k comments in it. To do this I used a tool that I built a few months ago called [Grab.](https://github.com/jinas123/grab) Grab is an indexing CLI tool for WordPress API. Built with laravel Zero.
