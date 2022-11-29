@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Mohamed Jinas</title>
-    <link>https://jinas.me/</link>
-    <description>Recent content on Mohamed Jinas</description>
+    <title>Posts on Mohamed Jinas</title>
+    <link>https://jinas.me/posts/</link>
+    <description>Recent content in Posts on Mohamed Jinas</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Jinas</copyright>
-    <lastBuildDate>Tue, 30 Nov 2021 03:36:54 +0500</lastBuildDate><atom:link href="https://jinas.me/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 30 Nov 2021 03:36:54 +0500</lastBuildDate><atom:link href="https://jinas.me/posts/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Sprinkles of Eloquent Listener</title>
       <link>https://jinas.me/posts/sprinkles-of-eloquent-listener/</link>
