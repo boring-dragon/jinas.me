@@ -2,6 +2,9 @@
 title: "Bot to Automatically Predict World Cup Score Purplelane App"
 date: 2022-12-15T06:48:35+05:00
 draft: false
+tags:
+    - bots
+    - world-cup
 ---
 The end of the world cup is finally getting near & everyone rushing to predict the final score of the game. I thought I would share an interesting thing I made just two weeks into the world cup. Since the start of it everyone & almost all the companies were posting predict and win score guessing competitions and among them was also the purple-lane app.
 
