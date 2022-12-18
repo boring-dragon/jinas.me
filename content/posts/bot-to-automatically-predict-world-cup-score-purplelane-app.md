@@ -11,11 +11,11 @@ I got signed up for the world-cup Foari that they were doing and started making 
 
 ![telgram bot](/telegramss.png)
 
-So I made the bot in like few hours & I initially made it to predict only the last 2 mins before prediction closes but that had a major flaw when sometimes when the cron job failed. I instead then changed the bot to predict the current score every 2 mins until the prediction close time. I got lot of points and even some how it was able to reach the leaderboard.
+So I made the bot in like few hours & I initially made it to predict only the last 2 mins before the prediction closes but that had a major flaw when sometimes when the cron job failed. I instead then changed the bot to predict the current score every 2 mins until the prediction close time. I got a lot of points and even somehow I was able to reach the leaderboard.
 
 ![Leader board](/leaderboard_22.png)
 
-I think if the bot was active from the beginning of world-cup I would have had a change to win some goodies. But it was just unpredictable in the knock-out matches & most matches after that. But it was a really fun experiment regardless.
+I think if the bot was active from the beginning of world-cup I would have had a chance to win some goodies. But it was just unpredictable in the knock-out matches & most matches after that. But it was a really fun experiment regardless.
 
 Below is the link to the GitHub repo of the project. Don't mind the messy code I was in a rush.
 
