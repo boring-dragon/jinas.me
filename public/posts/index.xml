@@ -7,7 +7,16 @@
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
     <copyright>Jinas</copyright>
-    <lastBuildDate>Tue, 30 Nov 2021 03:36:54 +0500</lastBuildDate><atom:link href="https://jinas.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 15 Dec 2022 06:48:35 +0500</lastBuildDate><atom:link href="https://jinas.me/posts/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Bot to Automatically Predict World Cup Score Purplelane App</title>
+      <link>https://jinas.me/posts/bot-to-automatically-predict-world-cup-score-purplelane-app/</link>
+      <pubDate>Thu, 15 Dec 2022 06:48:35 +0500</pubDate>
+      
+      <guid>https://jinas.me/posts/bot-to-automatically-predict-world-cup-score-purplelane-app/</guid>
+      <description>The end of the world-cup is finally getting near &amp;amp; everyone rushing to predict the final score of the game.</description>
+    </item>
+    
     <item>
       <title>Sprinkles of Eloquent Listener</title>
       <link>https://jinas.me/posts/sprinkles-of-eloquent-listener/</link>
