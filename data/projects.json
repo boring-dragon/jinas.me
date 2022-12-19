@@ -1,0 +1,55 @@
+{
+	"list": [
+		{
+			"name": "Vocalize (Coming soon)",
+			"url": "https://vocalize.mv",
+			"desc": "Produce clear, natural sounding speech from your dhivehi content for digital broadcasting using text-to-speech technology."
+		},
+		{
+			"name": "Write.mv",
+			"url": "https://write.mv",
+			"desc": "A platform to write,share and spread your words online."
+		},
+		{
+			"name": "Drift Motors",
+			"url": "https://driftmotors.shop/",
+			"desc": "Browse through a wide range of stock & aftermarket products for your bike"
+		},
+
+		{
+			"name": "Habicado",
+			"url": "https://github.com/boring-dragon/habicado",
+			"desc": "Habicado is a habit tracking app that rewards users with points for completing habits and allows them to use these points to purchase collectible characters for their profile."
+		},
+
+		{
+			"name": "SAMS",
+			"url": "https://github.com/boring-dragon/SAMS",
+			"desc": "Attendance System on Steroids. Student Attendance Management System ( Part of the web dev competition & assignment at taylors)"
+		},
+
+		{
+			"name": "MFR",
+			"url": "https://mfr.mv",
+			"desc": "News, analysis and publications from the Maldives frontier business publication featuring stories on Financial"
+		},
+
+		{
+			"name": "Blue hearts",
+			"url": "https://bluehearts.mv/",
+			"desc": "A safe and non-judgemental platform to address your mental health concerns"
+		},
+
+		{
+			"name": "Karudhaas (2020)(Abandoned)",
+			"url": "https://play.google.com/store/apps/details?id=dev.baraveli.karudhaas",
+			"desc": "Karudhaas is a an mobile app that helps you Discover Stories, Daily news, and inspirations. All with one app. "
+		},
+
+		{
+			"name": "Coronamv.live (2020)(Abandoned)",
+			"url": "https://github.com/baraveli/coronamv-new",
+			"desc": "1st public source to get latest updates on covid-19 information around maldives. "
+		}
+	]
+}
