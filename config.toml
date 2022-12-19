@@ -49,7 +49,7 @@ weight = 3
   showAllPostsArchive = false # default
 
   # Home page settings
-  description = "Full Stack Software Developer [@mihaaru](https://mihaaru.com), [@lukreate](https://lukreate.dev). Previously at [@kodefly](https://twitter.com/kodeflymv), Science Lover, Electronic Hobbyist. This is my personal website mainly to record my rants, studies, research, experiments, and other interesting things I come across. Just sharing my experiences."
+  description = "Full Stack Software Developer [@mihaaru](https://mihaaru.com), [@lukreate](https://lukreate.dev). Previously at [@kodefly](https://twitter.com/kodeflymv),  [@baraveli](https://github.com/baraveli), Science Lover, Electronic Hobbyist. This is my personal website mainly to record my rants, studies, research, experiments, and other interesting things I come across. Just sharing my experiences."
   mainSection = "posts" # your main section
   showAllPostsOnHomePage = false # default
   postsOnHomePage = 5 # this option will be ignored if showAllPostsOnHomePage is set to true
