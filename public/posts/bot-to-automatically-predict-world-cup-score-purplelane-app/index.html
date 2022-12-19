@@ -16,7 +16,7 @@
   <meta name="robots" content="all,follow">
   <meta name="googlebot" content="index,follow,snippet,archive">
   <meta property="og:title" content="Bot to Automatically Predict World Cup Score In Purplelane App" />
-<meta property="og:description" content="The end of the world cup is finally getting near &amp; everyone rushing to predict the final score of the game." />
+<meta property="og:description" content="Intro The end of the world cup is finally getting near &amp; everyone rushing to predict the final score of the game." />
 <meta property="og:type" content="article" />
 <meta property="og:url" content="https://jinas.me/posts/bot-to-automatically-predict-world-cup-score-purplelane-app/" /><meta property="article:section" content="posts" />
 <meta property="article:published_time" content="2022-12-15T06:48:35+05:00" />
@@ -25,7 +25,7 @@
 
   <meta name="twitter:card" content="summary"/>
 <meta name="twitter:title" content="Bot to Automatically Predict World Cup Score In Purplelane App"/>
-<meta name="twitter:description" content="The end of the world cup is finally getting near &amp; everyone rushing to predict the final score of the game."/>
+<meta name="twitter:description" content="Intro The end of the world cup is finally getting near &amp; everyone rushing to predict the final score of the game."/>
 
   
   
@@ -143,7 +143,7 @@
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fjinas.me%2fposts%2fbot-to-automatically-predict-world-cup-score-purplelane-app%2f&name=Bot%20to%20Automatically%20Predict%20World%20Cup%20Score%20In%20Purplelane%20App&description=The%20end%20of%20the%20world%20cup%20is%20finally%20getting%20near%20%26amp%3b%20everyone%20rushing%20to%20predict%20the%20final%20score%20of%20the%20game." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fjinas.me%2fposts%2fbot-to-automatically-predict-world-cup-score-purplelane-app%2f&name=Bot%20to%20Automatically%20Predict%20World%20Cup%20Score%20In%20Purplelane%20App&description=Intro%20The%20end%20of%20the%20world%20cup%20is%20finally%20getting%20near%20%26amp%3b%20everyone%20rushing%20to%20predict%20the%20final%20score%20of%20the%20game." aria-label="Tumblr">
       <i class="fab fa-tumblr " aria-hidden="true"></i>
     </a>
   </li>
@@ -157,7 +157,20 @@
     </div>
     
     <div id="toc">
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#initial-plan--steps">Initial plan &amp; Steps</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
     
   </span>
@@ -181,7 +194,7 @@
         <div class="article-read-time">
           <i class="far fa-clock"></i>
           
-          2 minute read
+          3 minute read
         </div>
         
         
@@ -203,11 +216,76 @@
   
     
     <div class="content" itemprop="articleBody">
-      <p>The end of the world cup is finally getting near &amp; everyone rushing to predict the final score of the game. I thought I would share an interesting thing I made just two weeks into the world cup. Since the start of it everyone &amp; almost all the companies were posting predict and win score guessing competitions and among them was also the purple-lane app.</p>
+      <h3 id="intro">Intro</h3>
+<p>The end of the world cup is finally getting near &amp; everyone rushing to predict the final score of the game. I thought I would share an interesting thing I made just two weeks into the world cup. Since the start of it everyone &amp; almost all the companies were posting predict and win score guessing competitions and among them was also the purple-lane app.</p>
 <p>Purple-lane is this amazing reward program app based in Maldives that helps companies to enroll &amp; manage their customers in their reward programs such as coupons, discounts &amp; more.</p>
-<p>I got signed up for the world-cup Foari that they were doing and started making predictions of the match of my own. Almost everything I predicted was wrong. And I was also missing matches because I wasn’t able to watch or keep up with the world-cup schedule. So I looked under the hood of how purple-lane API worked &amp; found the end-point to predict the score for the match. There was a prediction close time for each fixture of the match so I knew from the pattern of the matches so far that If neither of the team&rsquo;s scored before the prediction closes (which was approx 70mins into the game) I would get points. And for extra monitoring, I also made a telegram bot to send me a notification every time the prediction bot made a prediction.</p>
+<p>I got signed up for the world-cup Foari that they were doing and started making predictions of the match of my own. Almost everything I predicted was wrong. And I was also missing matches because I wasn’t able to watch or keep up with the world-cup schedule. So thought of making the process automated.</p>
+<h3 id="initial-plan--steps">Initial plan &amp; Steps</h3>
+<ul>
+<li><input checked="" disabled="" type="checkbox"> Get all the Live fixtures from worldcup API</li>
+<li><input checked="" disabled="" type="checkbox"> Get the fixtures to predict from PurpleLane API</li>
+<li><input checked="" disabled="" type="checkbox"> Convert Local time ( Qatar Time) to Maldives Time</li>
+<li><input checked="" disabled="" type="checkbox"> Mins Before <code>prediction_closes_at</code> equals to current time. Get the live score of the world cup fixture</li>
+<li><input checked="" disabled="" type="checkbox"> Predict with for the given email with away team score &amp; home team score</li>
+<li><input checked="" disabled="" type="checkbox"> Send notification over telegram when the bot makes a prediction</li>
+<li><input checked="" disabled="" type="checkbox"> Host &amp; run the app periodically on server</li>
+</ul>
+<p>So I looked under the hood of how purple-lane API worked &amp; found the end-point to predict the score for the match &amp; the live fixtures.</p>
+<h5 id="sample-fixture-response-from-their-api">Sample fixture response from their API</h5>
+<div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#282a36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-json" data-lang="json"><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1</span><span>{
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2</span><span>			<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#bd93f9">2414</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3</span><span>			<span style="color:#ff79c6">&#34;uuid&#34;</span>: <span style="color:#f1fa8c">&#34;97d6a6c5-9620-4a01-928d-76f26f22970d&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4</span><span>			<span style="color:#ff79c6">&#34;participant_id&#34;</span>: <span style="color:#f1fa8c">&#34;279&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5</span><span>			<span style="color:#ff79c6">&#34;fixture_id&#34;</span>: <span style="color:#bd93f9">31</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6</span><span>			<span style="color:#ff79c6">&#34;home_team_score&#34;</span>: <span style="color:#f1fa8c">&#34;0&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7</span><span>			<span style="color:#ff79c6">&#34;away_team_score&#34;</span>: <span style="color:#f1fa8c">&#34;0&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8</span><span>			<span style="color:#ff79c6">&#34;status&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9</span><span>			<span style="color:#ff79c6">&#34;prize_won&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10</span><span>			<span style="color:#ff79c6">&#34;won&#34;</span>: <span style="color:#bd93f9">0</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11</span><span>			<span style="color:#ff79c6">&#34;created_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-26T16:56:07.000000Z&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12</span><span>			<span style="color:#ff79c6">&#34;updated_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-26T17:56:59.000000Z&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13</span><span>			<span style="color:#ff79c6">&#34;fixture&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14</span><span>				<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#bd93f9">31</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15</span><span>				<span style="color:#ff79c6">&#34;uuid&#34;</span>: <span style="color:#f1fa8c">&#34;97c7a238-d1c0-469a-a150-16fd2d185e74&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16</span><span>				<span style="color:#ff79c6">&#34;stage&#34;</span>: <span style="color:#f1fa8c">&#34;Group D&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17</span><span>				<span style="color:#ff79c6">&#34;tournament_id&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18</span><span>				<span style="color:#ff79c6">&#34;home_team_id&#34;</span>: <span style="color:#bd93f9">13</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19</span><span>				<span style="color:#ff79c6">&#34;home_team_score&#34;</span>: <span style="color:#f1fa8c">&#34;2&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20</span><span>				<span style="color:#ff79c6">&#34;away_team_id&#34;</span>: <span style="color:#bd93f9">15</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21</span><span>				<span style="color:#ff79c6">&#34;away_team_score&#34;</span>: <span style="color:#f1fa8c">&#34;1&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22</span><span>				<span style="color:#ff79c6">&#34;prize&#34;</span>: <span style="color:#bd93f9">2</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23</span><span>				<span style="color:#ff79c6">&#34;prediction_closes_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-26T17:22:00.000000Z&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24</span><span>				<span style="color:#ff79c6">&#34;kick_off_time&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-26T16:00:00.000000Z&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25</span><span>				<span style="color:#ff79c6">&#34;match_status&#34;</span>: <span style="color:#bd93f9">3</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26</span><span>				<span style="color:#ff79c6">&#34;created_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-19T05:47:08.000000Z&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27</span><span>				<span style="color:#ff79c6">&#34;updated_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-26T17:56:42.000000Z&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28</span><span>				<span style="color:#ff79c6">&#34;date&#34;</span>: <span style="color:#f1fa8c">&#34;26-11-2022&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29</span><span>				<span style="color:#ff79c6">&#34;time&#34;</span>: <span style="color:#f1fa8c">&#34;21:00:00&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30</span><span>				<span style="color:#ff79c6">&#34;home_team&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31</span><span>					<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#bd93f9">13</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32</span><span>					<span style="color:#ff79c6">&#34;tournament_id&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33</span><span>					<span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;France&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34</span><span>					<span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;FRA&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35</span><span>					<span style="color:#ff79c6">&#34;logo&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36</span><span>					<span style="color:#ff79c6">&#34;flag&#34;</span>: <span style="color:#f1fa8c">&#34;GH2ZVtbsLaTpS1WBCw22VY1jecILdFWmMsctsowb.png&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37</span><span>					<span style="color:#ff79c6">&#34;created_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-16T02:56:09.000000Z&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38</span><span>					<span style="color:#ff79c6">&#34;updated_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-16T02:56:09.000000Z&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39</span><span>				},
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40</span><span>				<span style="color:#ff79c6">&#34;away_team&#34;</span>: {
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41</span><span>					<span style="color:#ff79c6">&#34;id&#34;</span>: <span style="color:#bd93f9">15</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42</span><span>					<span style="color:#ff79c6">&#34;tournament_id&#34;</span>: <span style="color:#bd93f9">1</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43</span><span>					<span style="color:#ff79c6">&#34;name&#34;</span>: <span style="color:#f1fa8c">&#34;Denmark&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44</span><span>					<span style="color:#ff79c6">&#34;code&#34;</span>: <span style="color:#f1fa8c">&#34;DEN&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45</span><span>					<span style="color:#ff79c6">&#34;logo&#34;</span>: <span style="color:#ff79c6">null</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46</span><span>					<span style="color:#ff79c6">&#34;flag&#34;</span>: <span style="color:#f1fa8c">&#34;dPwWtRNjPgOGlqQp3HV4grvOnyBC4td74JsAZtkI.png&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47</span><span>					<span style="color:#ff79c6">&#34;created_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-16T02:56:50.000000Z&#34;</span>,
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48</span><span>					<span style="color:#ff79c6">&#34;updated_at&#34;</span>: <span style="color:#f1fa8c">&#34;2022-11-16T02:56:50.000000Z&#34;</span>
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49</span><span>				}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50</span><span>			}
+</span></span><span style="display:flex;"><span style="white-space:pre;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51</span><span>		}
+</span></span></code></pre></div><p>There was a <code>prediction_closes_at</code> time for each fixture of the match so I knew from the pattern of the matches so far that If neither of the team&rsquo;s scored before the prediction closes (which was approx 70mins into the game) I would get points. And for extra monitoring, I also made a telegram bot to send me a notification every time the prediction bot made a prediction.</p>
 <p><img src="/telegramss.png" alt="telgram bot"></p>
-<p>So I made the bot in like few hours &amp; I initially made it to predict only the last 2 mins before the prediction closes but that had a major flaw when sometimes when the cron job failed. I instead then changed the bot to predict the current score every 2 mins until the prediction close time. I got a lot of points and even somehow I was able to reach the leaderboard.</p>
+<p>So I tested and made the bot in like few hours &amp; I initially made it to predict only the last 2 mins before the prediction closes but that had a major flaw when sometimes when the cron job failed. I instead then changed the bot to predict the current score every 2 mins until the prediction close time. I got a lot of points and even somehow I was able to reach the leaderboard!</p>
 <p><img src="/leaderboard_22.png" alt="Leader board"></p>
 <p>I think if the bot was active from the beginning of world-cup I would have had a chance to win some goodies. But it was just unpredictable in the knock-out matches &amp; most matches after that. But it was a really fun experiment regardless.</p>
 <p>Below is the link to the GitHub repo of the project. Don&rsquo;t mind the messy code I was in a rush.</p>
@@ -242,7 +320,20 @@
 
     
     <div id="toc-footer" style="display: none">
-      <nav id="TableOfContents"></nav>
+      <nav id="TableOfContents">
+  <ul>
+    <li>
+      <ul>
+        <li><a href="#intro">Intro</a></li>
+        <li><a href="#initial-plan--steps">Initial plan &amp; Steps</a>
+          <ul>
+            <li></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+  </ul>
+</nav>
     </div>
     
 
@@ -290,7 +381,7 @@
     </a>
   </li>
   <li>
-    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fjinas.me%2fposts%2fbot-to-automatically-predict-world-cup-score-purplelane-app%2f&name=Bot%20to%20Automatically%20Predict%20World%20Cup%20Score%20In%20Purplelane%20App&description=The%20end%20of%20the%20world%20cup%20is%20finally%20getting%20near%20%26amp%3b%20everyone%20rushing%20to%20predict%20the%20final%20score%20of%20the%20game." aria-label="Tumblr">
+    <a class="icon" href="http://www.tumblr.com/share/link?url=https%3a%2f%2fjinas.me%2fposts%2fbot-to-automatically-predict-world-cup-score-purplelane-app%2f&name=Bot%20to%20Automatically%20Predict%20World%20Cup%20Score%20In%20Purplelane%20App&description=Intro%20The%20end%20of%20the%20world%20cup%20is%20finally%20getting%20near%20%26amp%3b%20everyone%20rushing%20to%20predict%20the%20final%20score%20of%20the%20game." aria-label="Tumblr">
       <i class="fab fa-tumblr fa-lg" aria-hidden="true"></i>
     </a>
   </li>
