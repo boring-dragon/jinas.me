@@ -1,5 +1,5 @@
 ---
-title: "Bot to Automatically Predict World Cup Score In Purplelane App"
+title: "World Cup Psychic: Automatically Predict World Cup Score In Purplelane App"
 date: 2022-12-15T06:48:35+05:00
 draft: false
 tags:
